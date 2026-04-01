@@ -6,6 +6,12 @@
             <file>file:/C:/Users/Dell/Documents/NetBeansProjects/FunQuiz/web/history.jsp</file>
             <file>file:/C:/Users/Dell/Documents/NetBeansProjects/FunQuiz/src/java/com/quiz/util/DBConnection.java</file>
             <file>file:/C:/Users/Dell/Documents/NetBeansProjects/FunQuiz/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/FunQuiz/src/java/com/quiz/util/TestConnection.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/FunQuiz/web/META-INF/context.xml</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/FunQuiz/src/java/Question.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/FunQuiz/src/java/com/quiz/dao/UserDAO.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/FunQuiz/src/java/com/quiz/servlet/RegisterServlet.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/FunQuiz/src/java/com/quiz/util/package-info.java</file>
         </group>
     </open-files>
 </project-private>

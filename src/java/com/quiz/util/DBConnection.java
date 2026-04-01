@@ -8,21 +8,12 @@ public class DBConnection {
     public static Connection getConnection() {
         Connection con = null;
         try {
-            String host = System.getenv("DB_HOST");
-            String port = System.getenv("DB_PORT");
-            String dbName = System.getenv("DB_NAME");
-            String user = System.getenv("DB_USER");
-            String password = System.getenv("DB_PASSWORD");
-
-            if (host == null || port == null || dbName == null || user == null || password == null) {
-                System.out.println("ERROR: One or more environment variables are missing!");
-                System.out.println("DB_HOST: " + host);
-                System.out.println("DB_PORT: " + port);
-                System.out.println("DB_NAME: " + dbName);
-                System.out.println("DB_USER: " + user);
-                System.out.println("DB_PASSWORD: " + (password != null ? "SET" : "NULL"));
-                return null;
-            }
+            // Paste your actual Railway values below
+            String host = "turntable.proxy.rlwy.net";  // ← replace with your Railway host
+            String port = "37573";                       // ← replace with your Railway port
+            String dbName = "railway";                   // ← replace with your Railway DB name
+            String user = "root";                        // ← replace with your Railway username
+            String password = "JxYlbxIQwuOGAoYnjdWiAYaIiyZWBftU";            // ← replace with your Railway password
 
             String url = "jdbc:mysql://" + host + ":" + port + "/" + dbName
                        + "?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
