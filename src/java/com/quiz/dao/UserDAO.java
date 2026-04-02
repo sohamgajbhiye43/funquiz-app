@@ -8,65 +8,50 @@ import java.sql.SQLException;
 
 public class UserDAO {
 
-    // ✅ REGISTER USER (returns 1 = success, 0 = fail)
-    public int registerUser(String name, String email, String password) {
-        int status = 0;
-
+    // REGISTER USER - returns true if successful
+    public boolean registerUser(String name, String email, String password) {
+        boolean success = false;
         try {
             Connection con = DBConnection.getConnection();
-
             if (con == null) {
-                System.out.println("❌ DB connection is NULL in registerUser");
-                return 0;
+                System.out.println("registerUser: DB connection is null!");
+                return false;
             }
-
-            String query = "INSERT INTO users (name, email, password) VALUES (?, ?, ?)";
+            String query = "INSERT INTO users(name, email, password, role) VALUES (?, ?, ?, 'user')";
             PreparedStatement ps = con.prepareStatement(query);
-
-            ps.setString(1, name.trim());
-            ps.setString(2, email.trim());
-            ps.setString(3, password.trim());
-
-            int rows = ps.executeUpdate();
-
-            if (rows > 0) {
-                status = 1; // success
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
+            ps.setString(1, name);
+            ps.setString(2, email);
+            ps.setString(3, password);
+            int row = ps.executeUpdate();
+            success = (row > 0);
+            System.out.println("registerUser result: " + success);
+        } catch (SQLException e) {
+            System.out.println("registerUser error: " + e.getMessage());
         }
-
-        return status;
+        return success;
     }
 
-    // ✅ LOGIN USER (returns userId if success, -1 if fail)
+    // LOGIN USER - returns user id if found, -1 if not
     public int loginUser(String email, String password) {
         int userId = -1;
-
         try {
             Connection con = DBConnection.getConnection();
-
             if (con == null) {
-                System.out.println("❌ DB connection is NULL in loginUser");
+                System.out.println("loginUser: DB connection is null!");
                 return -1;
             }
-
-            String query = "SELECT id FROM users WHERE email = ? AND password = ?";
+            String query = "SELECT id FROM users WHERE email=? AND password=?";
             PreparedStatement ps = con.prepareStatement(query);
-
-            ps.setString(1, email.trim());
-            ps.setString(2, password.trim());
-
+            ps.setString(1, email);
+            ps.setString(2, password);
             ResultSet rs = ps.executeQuery();
-
             if (rs.next()) {
                 userId = rs.getInt("id");
             }
-
+            System.out.println("loginUser result userId: " + userId);
         } catch (SQLException e) {
+            System.out.println("loginUser error: " + e.getMessage());
         }
-
         return userId;
     }
 }
