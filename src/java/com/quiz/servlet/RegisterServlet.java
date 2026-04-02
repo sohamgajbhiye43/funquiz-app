@@ -18,12 +18,13 @@ public class RegisterServlet extends HttpServlet {
         String password = request.getParameter("password");
 
         UserDAO dao = new UserDAO();
-        boolean status = dao.registerUser(name, email, password);
+        int status = dao.registerUser(name, email, password);
 
-        if (status) {
+        if (status == 1) {
             response.sendRedirect("login.jsp");
         } else {
-            response.getWriter().println("Registration Failed!");
+            response.setContentType("text/html");
+            response.getWriter().println("<h3 style='color:red;'>Registration Failed!</h3>");
         }
     }
 }
