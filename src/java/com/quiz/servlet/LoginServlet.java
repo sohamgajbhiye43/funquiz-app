@@ -17,24 +17,24 @@ public class LoginServlet extends HttpServlet {
         String password = request.getParameter("password");
 
         UserDAO dao = new UserDAO();
-int userId = dao.loginUser(email, password);
+        int userId = dao.loginUser(email, password);
 
-if (userId != -1) {
+        if (userId != -1) {
 
-    HttpSession session = request.getSession();
-    session.setAttribute("userId", userId);
-    session.setAttribute("user", email);
+            HttpSession session = request.getSession();
+            session.setAttribute("userId", userId);
+            session.setAttribute("user", email);
 
-    // CHECK ROLE
-    if (    email.equals("admin199@gmail.com")) {
-        response.sendRedirect("admin.jsp");
-    } else {
-        response.sendRedirect("dashboard.jsp");
-    }
+            // ADMIN CHECK
+            if (email.equals("admin199@gmail.com")) {
+                response.sendRedirect("admin.jsp");
+            } else {
+                response.sendRedirect("dashboard.jsp");
+            }
 
-} 
-    else {
-    response.getWriter().println("Invalid Credentials!");
-}
+        } else {
+            response.setContentType("text/html");
+            response.getWriter().println("<h3 style='color:red;'>Invalid Credentials!</h3>");
+        }
     }
 }
