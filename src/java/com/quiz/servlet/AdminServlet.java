@@ -23,12 +23,26 @@ public class AdminServlet extends HttpServlet {
         try {
             Connection con = DBConnection.getConnection();
 
-            // USERS
+            if (con == null) {
+                response.getWriter().println("Database connection failed!");
+                return;
+            }
+
+            // ✅ DELETE USER (if id passed)
+            String deleteId = request.getParameter("deleteUserId");
+            if (deleteId != null) {
+                PreparedStatement ps = con.prepareStatement("DELETE FROM users WHERE id=?");
+                ps.setString(1, deleteId);
+                ps.executeUpdate();
+            }
+
+            // USERS (including password)
             ResultSet rs1 = con.createStatement().executeQuery("SELECT * FROM users");
             while (rs1.next()) {
                 Map<String, String> u = new HashMap<>();
                 u.put("id", rs1.getString("id"));
                 u.put("email", rs1.getString("email"));
+                u.put("password", rs1.getString("password")); // ✅ added
                 u.put("role", rs1.getString("role"));
                 users.add(u);
             }
@@ -62,7 +76,6 @@ public class AdminServlet extends HttpServlet {
             }
 
         } catch (SQLException e) {
-           
         }
 
         HttpSession session = request.getSession();

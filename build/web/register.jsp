@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Register</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <style>
         /* Full page styling */
@@ -78,19 +79,22 @@
 
 </head>
 <body>
+    
 <h2>Register</h2>
+
 <br>
 <br>
 <br>
 <br>
 
-
-<form action="register" method="post">
+<form action="register" method="post" style="text-align:center;">
     Name: <input type="text" name="name"><br>
     Email: <input type="text" name="email"><br>
     Password: <input type="password" name="password"><br>
     <button type="submit">Register</button>
 </form>
 
+
+    
 </body>
 </html>

@@ -19,6 +19,7 @@ List<Map<String,String>> attempts = dao.getAttempts();
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <title>Admin Panel</title>
     <link rel="stylesheet" href="css/st.css">
@@ -39,13 +40,30 @@ List<Map<String,String>> attempts = dao.getAttempts();
 
 <h3 style="text-align:center;">Users</h3>
 <table>
-<tr><th>ID</th><th>Name</th><th>Email</th><th>Role</th></tr>
+<tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Password</th> <!-- ✅ added -->
+    <th>Role</th>
+    <th>Action</th> <!-- ✅ added -->
+</tr>
+
 <% for(Map<String,String> u: users){ %>
 <tr>
-<td><%=u.get("id")%></td>
-<td><%=u.get("name")%></td>
-<td><%=u.get("email")%></td>
-<td><%=u.get("role")%></td>
+    <td><%=u.get("id")%></td>
+    <td><%=u.get("name")%></td>
+    <td><%=u.get("email")%></td>
+    <td><%=u.get("password")%></td> <!-- ✅ added -->
+    <td><%=u.get("role")%></td>
+
+    <td>
+        <a href="adminData?deleteUserId=<%=u.get("id")%>" 
+           style="color:red; font-weight:bold;">
+           Delete
+        </a>
+    </td>
+
 </tr>
 <% } %>
 </table>
@@ -77,6 +95,8 @@ List<Map<String,String>> attempts = dao.getAttempts();
 </tr>
 <% } %>
 </table>
+
+    
 
 
     <div style="text-align:center;" onmouseover="this.style.transform='translateY(-10px) scale(1.05)'"

@@ -12,6 +12,20 @@
             <file>file:/C:/Users/Dell/Documents/NetBeansProjects/FunQuiz/src/java/com/quiz/dao/UserDAO.java</file>
             <file>file:/C:/Users/Dell/Documents/NetBeansProjects/FunQuiz/src/java/com/quiz/servlet/RegisterServlet.java</file>
             <file>file:/C:/Users/Dell/Documents/NetBeansProjects/FunQuiz/src/java/com/quiz/util/package-info.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/FunQuiz/web/register.jsp</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/FunQuiz/src/java/com/quiz/servlet/LoginServlet.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/FunQuiz/src/java/com/quiz/servlet/QuizServlet.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/FunQuiz/web/addQuestion.jsp</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/FunQuiz/web/admin.jsp</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/FunQuiz/web/dashboard.jsp</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/FunQuiz/web/feedback.jsp</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/FunQuiz/web/index.html</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/FunQuiz/web/login.jsp</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/FunQuiz/web/quiz.jsp</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/FunQuiz/web/result.jsp</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/FunQuiz/web/index.jsp</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/FunQuiz/src/java/com/quiz/servlet/AdminServlet.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/FunQuiz/src/java/com/quiz/dao/AdminDAO.java</file>
         </group>
     </open-files>
 </project-private>

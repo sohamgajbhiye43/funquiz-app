@@ -17,6 +17,7 @@ public class AdminDAO {
                 m.put("id", rs.getString("id"));
                 m.put("name", rs.getString("name"));
                 m.put("email", rs.getString("email"));
+                m.put("password", rs.getString("password")); // ✅ ADD THIS LINE
                 m.put("role", rs.getString("role"));
                 list.add(m);
             }
