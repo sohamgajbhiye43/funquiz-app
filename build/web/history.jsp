@@ -12,7 +12,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Attempts – QuizMaster</title>
+    <title>My Attempts – FunQuiz</title>
     <link rel="stylesheet" href="css/style.css">
     <style>
         .attempts-wrap { width: 100%; max-width: 720px; }
