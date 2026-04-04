@@ -760,7 +760,7 @@
 
 <!-- NAV -->
 <nav id="navbar">
-    <div class="nav-logo">Quiz<span style="-webkit-text-fill-color: unset; color: var(--accent2)">Master</span></div>
+    <div class="nav-logo">Fun<span style="-webkit-text-fill-color: unset; color: var(--accent2)">Quiz</span></div>
     <ul class="nav-links">
         <li><a href="#categories">Categories</a></li>
         <li><a href="#faq">FAQ</a></li>
