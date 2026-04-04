@@ -3,6 +3,9 @@
     "attributes": {
         "background-color": {
             "context": "h2"
+        },
+        "guestlogin\"": {
+            "context": "button"
         }
     }
 }

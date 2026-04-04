@@ -1,98 +1,129 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-
+    <title>Login – FunQuiz</title>
+    <link rel="stylesheet" href="css/style.css">
     <style>
-        /* Full page styling */
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
+        .login-wrap {
+            width: 100%; max-width: 420px;
+        }
+        .login-header { text-align: center; margin-bottom: 36px; }
+        .login-header .section-title { font-size: 2.2rem; }
+        .login-header p { color: var(--text-muted); margin-top: 8px; font-size: 0.95rem; }
 
-            /* Centering using Flexbox */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-
-            /* Background color */
-            background: linear-gradient(to right, #4fa, #00f2fe);
+        .divider {
+            display: flex; align-items: center; gap: 12px;
+            margin: 20px 0; color: var(--text-muted); font-size: 0.8rem;
+        }
+        .divider::before, .divider::after {
+            content: ''; flex: 1; height: 1px; background: var(--border);
         }
 
-        /* Login box */
-        .login-container {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            width: 300px;
-            text-align: center;
+        .login-footer {
+            text-align: center; margin-top: 24px;
+            color: var(--text-muted); font-size: 0.88rem;
+        }
+        .login-footer a { color: var(--accent); text-decoration: none; font-weight: 600; }
+        .login-footer a:hover { text-decoration: underline; }
 
-            /* Shadow for modern look */
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        .error-box {
+            background: rgba(255,77,109,0.1); border: 1px solid rgba(255,77,109,0.3);
+            border-radius: 10px; padding: 12px 16px;
+            color: var(--red); font-size: 0.88rem; margin-bottom: 20px;
+            display: flex; align-items: center; gap: 8px;
         }
 
-        h2 {
-            margin-bottom: 20px;
-            color: #333;
+        .input-icon-wrap { position: relative; }
+        .input-icon-wrap .input-field { padding-left: 44px; }
+        .input-icon {
+            position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
+            font-size: 1rem; color: var(--text-muted);
         }
 
-        /* Input fields */
-        input {
-            width: 90%;
-            padding: 10px;
-            margin: 10px 0;
-
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        /* Button styling */
-        button {
-            width: 100%;
-            padding: 10px;
-            background: #4facfe;
-            border: none;
-            color: white;
-            font-size: 16px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background: #00c6ff;
-        }
-
-        /* Register link */
-        a {
-            display: block;
-            margin-top: 15px;
-            text-decoration: none;
-            color: #4facfe;
-        }
-
-        a:hover {
-            text-decoration: underline;
+        .show-password {
+            position: absolute; right: 14px; top: 50%; transform: translateY(-50%);
+            cursor: pointer; color: var(--text-muted); font-size: 0.8rem;
+            background: none; border: none; color: var(--accent); font-weight: 600;
         }
     </style>
-
 </head>
-
 <body>
+<div class="page-bg"></div>
+<div class="page-grid"></div>
 
-<div class="login-container">
-    <h2>Login</h2>
+<nav class="qm-nav">
+    <a href="index.jsp" class="qm-logo">FunQuiz</a>
+    <div class="qm-nav-right">
+        <a href="register.jsp" class="btn btn-outline btn-sm">Register</a>
+    </div>
+</nav>
 
-    <form action="login" method="post">
-        <input type="text" name="email" placeholder="Enter Email" required>
-        <input type="password" name="password" placeholder="Enter Password" required>
+<div class="page-wrap">
+    <div class="login-wrap">
 
-        <button type="submit">Login</button>
-    </form>
+        <div class="login-header anim-up">
+            <span class="section-label">Welcome Back</span>
+            <h1 class="section-title">Login to Play</h1>
+            <p>Pick up where you left off and climb the leaderboard.</p>
+        </div>
 
-    <a href="register.jsp">Register</a>
+        <div class="card anim-up-2">
+
+            <% String error = request.getParameter("error"); %>
+            <% if ("invalid".equals(error)) { %>
+            <div class="error-box">⚠️ Invalid email or password. Please try again.</div>
+            <% } %>
+
+            <form action="login" method="post">
+                <div class="input-group">
+                    <label class="input-label">Email Address</label>
+                    <div class="input-icon-wrap">
+                        <span class="input-icon">✉️</span>
+                        <input type="email" name="email" class="input-field"
+                               placeholder="you@example.com" required autocomplete="email">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label class="input-label">Password</label>
+                    <div class="input-icon-wrap">
+                        <span class="input-icon">🔒</span>
+                        <input type="password" name="password" id="passwordField"
+                               class="input-field" placeholder="Enter your password"
+                               required autocomplete="current-password">
+                        <button type="button" class="show-password" onclick="togglePassword()">Show</button>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-full btn-lg" style="margin-top: 8px;">
+                    Login →
+                </button>
+            </form>
+
+            <div class="divider">or</div>
+
+            <a href="register.jsp" class="btn btn-outline btn-full">
+                Create a New Account
+            </a>
+        </div>
+
+        <div class="login-footer anim-up-3">
+            Don't have an account? <a href="register.jsp">Register free</a>
+        </div>
+
+    </div>
 </div>
 
+<script>
+function togglePassword() {
+    const f = document.getElementById('passwordField');
+    const btn = f.nextElementSibling;
+    if (f.type === 'password') { f.type = 'text'; btn.textContent = 'Hide'; }
+    else { f.type = 'password'; btn.textContent = 'Show'; }
+}
+</script>
 </body>
 </html>

@@ -1,5 +1,13 @@
 <%@ page import="java.util.*, com.quiz.dao.AdminDAO" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%
+Object userId = session.getAttribute("userId");
+Object role = session.getAttribute("role");
+if (userId == null || !"admin".equals(role)) {
+    response.sendRedirect("login.jsp");
+    return;
+}
+%>
 
 <%
 if (session.getAttribute("userId") == null) {

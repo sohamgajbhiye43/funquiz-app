@@ -1,141 +1,176 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-
+<%
+    if (session.getAttribute("userId") == null) {
+        response.sendRedirect("login.jsp");
+        return;
+    }
+%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feedback</title>
-
+    <title>Feedback – FunQuiz</title>
+    <link rel="stylesheet" href="css/style.css">
     <style>
-        body {
-            font-family: Arial;
-            text-align: center;
-            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+        .feedback-wrap { width: 100%; max-width: 500px; }
+
+        .feedback-header { text-align: center; margin-bottom: 32px; }
+        .feedback-header .section-title { font-size: 2rem; }
+        .feedback-header p { color: var(--text-muted); margin-top: 8px; }
+
+        .rating-item {
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: 16px; padding: 20px 24px; margin-bottom: 12px;
+            transition: border-color 0.2s;
+        }
+        .rating-item:hover { border-color: var(--border); }
+        .rating-item.rated { border-color: rgba(108,99,255,0.3); }
+
+        .rating-label {
+            font-weight: 600; font-size: 0.9rem; margin-bottom: 12px;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .rating-num {
+            width: 24px; height: 24px; border-radius: 8px;
+            background: rgba(108,99,255,0.15); color: var(--accent);
+            display: inline-flex; align-items: center; justify-content: center;
+            font-size: 0.75rem; font-weight: 700; font-family: 'Syne', sans-serif;
         }
 
-        .container {
-            background: white;
-            width: 90%;
-            max-width: 500px;
-            margin: auto;
-            padding: 20px;
-            margin-top: 40px;
-            border-radius: 10px;
+        .stars { display: flex; gap: 8px; }
+        .star {
+            font-size: 1.6rem; cursor: pointer;
+            filter: grayscale(1) opacity(0.4);
+            transition: filter 0.15s, transform 0.15s;
         }
+        .star.active { filter: grayscale(0) opacity(1); }
+        .star:hover { transform: scale(1.15); }
 
-        h2 {
-            margin-bottom: 20px;
-        }
-
-        .question {
-            margin: 15px 0;
-        }
-
-        .stars {
-            display: flex;
-            justify-content: center;
-            flex-direction: row-reverse;
-        }
-
-        .stars input {
-            display: none;
-        }
-
-        .stars label {
-            font-size: 25px;
-            color: gray;
-            cursor: pointer;
-        }
-
-        .stars input:checked ~ label {
-            color: gold;
-        }
-
-        button {
-            margin-top: 20px;
-            padding: 10px;
-            width: 100%;
-            background: #ff6f61;
-            color: white;
-            border: none;
-            border-radius: 5px;
+        .success-box {
+            background: rgba(67,233,123,0.1); border: 1px solid rgba(67,233,123,0.3);
+            border-radius: 12px; padding: 16px; text-align: center;
+            color: var(--accent3); font-weight: 600; display: none;
         }
     </style>
-
 </head>
 <body>
+<div class="page-bg"></div>
+<div class="page-grid"></div>
 
-<div class="container">
-
-<h2>Rate Your Quiz Experience</h2>
-
-<form action="submitFeedback" method="post">
-
-<!-- QUESTION 1 -->
-<div class="question">
-    <p>1. Quiz Difficulty</p>
-    <div class="stars">
-        <input type="radio" name="q1" value="5" id="q1-5"><label for="q1-5">★</label>
-        <input type="radio" name="q1" value="4" id="q1-4"><label for="q1-4">★</label>
-        <input type="radio" name="q1" value="3" id="q1-3"><label for="q1-3">★</label>
-        <input type="radio" name="q1" value="2" id="q1-2"><label for="q1-2">★</label>
-        <input type="radio" name="q1" value="1" id="q1-1"><label for="q1-1">★</label>
+<nav class="qm-nav">
+    <a href="index.jsp" class="qm-logo">FunQuiz</a>
+    <div class="qm-nav-right">
+        <a href="dashboard.jsp" class="btn btn-outline btn-sm">Dashboard</a>
     </div>
-</div>
+</nav>
 
-<!-- QUESTION 2 -->
-<div class="question">
-    <p>2. Quiz Engagement</p>
-    <div class="stars">
-        <input type="radio" name="q2" value="5" id="q2-5"><label for="q2-5">★</label>
-        <input type="radio" name="q2" value="4" id="q2-4"><label for="q2-4">★</label>
-        <input type="radio" name="q2" value="3" id="q2-3"><label for="q2-3">★</label>
-        <input type="radio" name="q2" value="2" id="q2-2"><label for="q2-2">★</label>
-        <input type="radio" name="q2" value="1" id="q2-1"><label for="q2-1">★</label>
+<div class="page-wrap">
+<div class="feedback-wrap">
+
+    <div class="feedback-header anim-up">
+        <span class="section-label">Share Your Thoughts</span>
+        <h1 class="section-title">Rate Your Experience</h1>
+        <p>Help us improve FunQuiz with your honest feedback.</p>
     </div>
+
+    <form action="submitFeedback" method="post" id="feedbackForm">
+
+        <div class="rating-item anim-up" id="item1">
+            <div class="rating-label"><span class="rating-num">1</span> Quiz Difficulty</div>
+            <div class="stars" data-q="1">
+                <span class="star" data-val="1">⭐</span>
+                <span class="star" data-val="2">⭐</span>
+                <span class="star" data-val="3">⭐</span>
+                <span class="star" data-val="4">⭐</span>
+                <span class="star" data-val="5">⭐</span>
+            </div>
+            <input type="hidden" name="q1" id="q1" value="0">
+        </div>
+
+        <div class="rating-item anim-up-2" id="item2">
+            <div class="rating-label"><span class="rating-num">2</span> Quiz Engagement</div>
+            <div class="stars" data-q="2">
+                <span class="star" data-val="1">⭐</span>
+                <span class="star" data-val="2">⭐</span>
+                <span class="star" data-val="3">⭐</span>
+                <span class="star" data-val="4">⭐</span>
+                <span class="star" data-val="5">⭐</span>
+            </div>
+            <input type="hidden" name="q2" id="q2" value="0">
+        </div>
+
+        <div class="rating-item anim-up-2" id="item3">
+            <div class="rating-label"><span class="rating-num">3</span> UI Experience</div>
+            <div class="stars" data-q="3">
+                <span class="star" data-val="1">⭐</span>
+                <span class="star" data-val="2">⭐</span>
+                <span class="star" data-val="3">⭐</span>
+                <span class="star" data-val="4">⭐</span>
+                <span class="star" data-val="5">⭐</span>
+            </div>
+            <input type="hidden" name="q3" id="q3" value="0">
+        </div>
+
+        <div class="rating-item anim-up-3" id="item4">
+            <div class="rating-label"><span class="rating-num">4</span> Question Quality</div>
+            <div class="stars" data-q="4">
+                <span class="star" data-val="1">⭐</span>
+                <span class="star" data-val="2">⭐</span>
+                <span class="star" data-val="3">⭐</span>
+                <span class="star" data-val="4">⭐</span>
+                <span class="star" data-val="5">⭐</span>
+            </div>
+            <input type="hidden" name="q4" id="q4" value="0">
+        </div>
+
+        <div class="rating-item anim-up-3" id="item5">
+            <div class="rating-label"><span class="rating-num">5</span> Overall Experience</div>
+            <div class="stars" data-q="5">
+                <span class="star" data-val="1">⭐</span>
+                <span class="star" data-val="2">⭐</span>
+                <span class="star" data-val="3">⭐</span>
+                <span class="star" data-val="4">⭐</span>
+                <span class="star" data-val="5">⭐</span>
+            </div>
+            <input type="hidden" name="q5" id="q5" value="0">
+        </div>
+
+        <div style="margin-top: 24px; display: flex; gap: 12px;">
+            <button type="submit" class="btn btn-primary btn-full btn-lg">
+                Submit Feedback ✓
+            </button>
+            <a href="dashboard.jsp" class="btn btn-outline btn-lg">Skip</a>
+        </div>
+    </form>
+
+</div>
 </div>
 
-<!-- QUESTION 3 -->
-<div class="question">
-    <p>3. UI Experience</p>
-    <div class="stars">
-        <input type="radio" name="q3" value="5" id="q3-5"><label for="q3-5">★</label>
-        <input type="radio" name="q3" value="4" id="q3-4"><label for="q3-4">★</label>
-        <input type="radio" name="q3" value="3" id="q3-3"><label for="q3-3">★</label>
-        <input type="radio" name="q3" value="2" id="q3-2"><label for="q3-2">★</label>
-        <input type="radio" name="q3" value="1" id="q3-1"><label for="q3-1">★</label>
-    </div>
-</div>
+<script>
+document.querySelectorAll('.stars').forEach(starGroup => {
+    const qNum = starGroup.dataset.q;
+    const stars = starGroup.querySelectorAll('.star');
+    const input = document.getElementById('q' + qNum);
+    const item = document.getElementById('item' + qNum);
 
-<!-- QUESTION 4 -->
-<div class="question">
-    <p>4. Question Quality</p>
-    <div class="stars">
-        <input type="radio" name="q4" value="5" id="q4-5"><label for="q4-5">★</label>
-        <input type="radio" name="q4" value="4" id="q4-4"><label for="q4-4">★</label>
-        <input type="radio" name="q4" value="3" id="q4-3"><label for="q4-3">★</label>
-        <input type="radio" name="q4" value="2" id="q4-2"><label for="q4-2">★</label>
-        <input type="radio" name="q4" value="1" id="q4-1"><label for="q4-1">★</label>
-    </div>
-</div>
-
-<!-- QUESTION 5 -->
-<div class="question">
-    <p>5. Overall Experience</p>
-    <div class="stars">
-        <input type="radio" name="q5" value="5" id="q5-5"><label for="q5-5">★</label>
-        <input type="radio" name="q5" value="4" id="q5-4"><label for="q5-4">★</label>
-        <input type="radio" name="q5" value="3" id="q5-3"><label for="q5-3">★</label>
-        <input type="radio" name="q5" value="2" id="q5-2"><label for="q5-2">★</label>
-        <input type="radio" name="q5" value="1" id="q5-1"><label for="q5-1">★</label>
-    </div>
-</div>
-
-<button type="submit">Submit Feedback</button>
-
-</form>
-
-</div>
-
+    stars.forEach(star => {
+        star.addEventListener('mouseover', () => {
+            const val = parseInt(star.dataset.val);
+            stars.forEach((s, i) => s.classList.toggle('active', i < val));
+        });
+        star.addEventListener('mouseleave', () => {
+            const current = parseInt(input.value);
+            stars.forEach((s, i) => s.classList.toggle('active', i < current));
+        });
+        star.addEventListener('click', () => {
+            const val = parseInt(star.dataset.val);
+            input.value = val;
+            stars.forEach((s, i) => s.classList.toggle('active', i < val));
+            item.classList.add('rated');
+        });
+    });
+});
+</script>
 </body>
 </html>

@@ -26,6 +26,12 @@
             <file>file:/C:/Users/Dell/Documents/NetBeansProjects/FunQuiz/web/index.jsp</file>
             <file>file:/C:/Users/Dell/Documents/NetBeansProjects/FunQuiz/src/java/com/quiz/servlet/AdminServlet.java</file>
             <file>file:/C:/Users/Dell/Documents/NetBeansProjects/FunQuiz/src/java/com/quiz/dao/AdminDAO.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/FunQuiz/src/java/com/quiz/servlet/GuestServlet.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/FunQuiz/src/java/com/quiz/servlet/SaveScoreServlet.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/FunQuiz/src/java/com/quiz/dao/ScoreDAO.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/FunQuiz/src/java/com/quiz/dao/QuestionDAO.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/FunQuiz/src/java/com/quiz/servlet/NextQuestionServlet.java</file>
+            <file>file:/C:/Users/Dell/Documents/NetBeansProjects/FunQuiz/web/css/style.css</file>
         </group>
     </open-files>
 </project-private>

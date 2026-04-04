@@ -31,27 +31,29 @@ public class UserDAO {
         return success;
     }
 
-    // LOGIN USER - returns user id if found, -1 if not
+    // Add this field at top of UserDAO class
+    private String lastRole = "";
+
+    public String getLastRole() { return lastRole; }
+
     public int loginUser(String email, String password) {
-        int userId = -1;
-        try {
-            Connection con = DBConnection.getConnection();
-            if (con == null) {
-                System.out.println("loginUser: DB connection is null!");
-                return -1;
-            }
-            String query = "SELECT id FROM users WHERE email=? AND password=?";
-            PreparedStatement ps = con.prepareStatement(query);
-            ps.setString(1, email);
-            ps.setString(2, password);
-            ResultSet rs = ps.executeQuery();
-            if (rs.next()) {
-                userId = rs.getInt("id");
-            }
-            System.out.println("loginUser result userId: " + userId);
-        } catch (SQLException e) {
-            System.out.println("loginUser error: " + e.getMessage());
+    int userId = -1;
+    try {
+        Connection con = DBConnection.getConnection();
+        if (con == null) { return -1; }
+        String query = "SELECT id, role FROM users WHERE email=? AND password=?";
+        PreparedStatement ps = con.prepareStatement(query);
+        ps.setString(1, email);
+        ps.setString(2, password);
+        ResultSet rs = ps.executeQuery();
+        if (rs.next()) {
+            userId = rs.getInt("id");
+            lastRole = rs.getString("role"); // save role
         }
-        return userId;
+        System.out.println("loginUser: userId=" + userId + " role=" + lastRole);
+    } catch (SQLException e) {
+        System.out.println("loginUser error: " + e.getMessage());
     }
+    return userId;
+}
 }

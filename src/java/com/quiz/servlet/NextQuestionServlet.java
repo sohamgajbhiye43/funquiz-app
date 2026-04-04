@@ -1,4 +1,4 @@
-package com.quiz.servlet;
+//package com.quiz.servlet;
 
 import com.quiz.util.DBConnection;
 import javax.servlet.*;
