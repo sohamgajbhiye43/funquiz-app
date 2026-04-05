@@ -708,7 +708,7 @@
     <div style="position: absolute; bottom: 0; left: 4%; z-index: 0; pointer-events: none;">
         <img src="images/thinking.jpeg"
              alt="Quiz Time"
-             style="width: 300px; max-width: 38vw; border-radius: 20px;
+             style="width: 280px; max-width: 38vw; border-radius: 20px;
                     filter: blur(1px) saturate(1.6);">
     </div>
 
@@ -771,13 +771,13 @@
 
 <!-- COUNTERS — UNCHANGED -->
 
-<!-- FEATURES — UNCHANGED except Addition 2 replaces the empty <div> at the end -->
+  <!-- FEATURES -->
 <section class="features" id="features">
     <div class="features-grid">
         <div class="reveal">
-            <span class="section-label">Why FunMaster</span>
+            <span class="section-label">Why FunQuiz</span>
             <h2 class="section-title">Everything You Need<br>to Win</h2>
-            <p class="section-sub" style="margin-bottom: 40px;">Built for students, competitive minds, and lifelong learners who take their knowledge seriously.</p>
+            <p class="section-sub" style="margin-bottom: 10px;">Built for students, competitive minds, and lifelong learners who take their knowledge seriously.</p>
             <div class="features-list">
                 <div class="feature-item">
                     <div class="feature-icon" style="background: rgba(108,99,255,0.15);">⏱️</div>
@@ -793,7 +793,6 @@
                         <p>See your accuracy, speed, and weak areas broken down after every quiz attempt.</p>
                     </div>
                 </div>
-                </div>
                 <div class="feature-item">
                     <div class="feature-icon" style="background: rgba(247,151,30,0.15);">🔥</div>
                     <div>
@@ -803,6 +802,27 @@
                 </div>
             </div>
         </div>
+        <div class="features-visual reveal">
+            <div class="mock-quiz">
+                <div class="mock-quiz-header">
+                    <span class="title"> Kpop Culture</span>
+                    <span class="mock-timer">⏱ 02:34</span>
+                </div>
+                <div class="mock-progress"><div class="mock-progress-bar"></div></div>
+                <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 80px;">Question 6 of 10</p>
+                <p class="mock-question">Who is known as the King of Pop?</p>
+                <div class="mock-options">
+                    <div class="mock-option">Elvis Presley</div>
+                    <div class="mock-option selected">Michael Jackson</div>
+                    <div class="mock-option">Justin Bieber</div>
+                    <div class="mock-option">Drake</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    
 
         <!-- ▼▼▼ ADDITION 2: VIDEO — replaces the empty <div> </div> that was here ▼▼▼ -->
         
