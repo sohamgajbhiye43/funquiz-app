@@ -87,7 +87,7 @@
 <div class="page-grid"></div>
 
 <nav class="qm-nav">
-    <a href="index.jsp" class="qm-logo">QuizMaster</a>
+    <a href="index.jsp" class="qm-logo">FunQuiz</a>
     <div class="qm-nav-right">
         <a href="dashboard.jsp" class="btn btn-outline btn-sm">← Dashboard</a>
         <a href="logout" class="btn btn-ghost btn-sm">Logout</a>

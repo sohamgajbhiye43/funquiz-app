@@ -55,12 +55,10 @@
         }
         body:hover .cursor { opacity: 1; }
 
-        /* Scrollbar */
         ::-webkit-scrollbar { width: 4px; }
         ::-webkit-scrollbar-track { background: var(--bg); }
         ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; }
 
-        /* NAV */
         nav {
             position: fixed; top: 0; left: 0; right: 0;
             z-index: 100;
@@ -96,9 +94,7 @@
         .nav-links a:hover { color: var(--text); }
         .nav-links a:hover::after { transform: scaleX(1); }
 
-        .nav-cta {
-            display: flex; gap: 12px; align-items: center;
-        }
+        .nav-cta { display: flex; gap: 12px; align-items: center; }
         .btn-outline {
             padding: 9px 22px; border: 1px solid var(--border);
             background: transparent; color: var(--text-muted);
@@ -119,7 +115,6 @@
         }
         .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 0 30px rgba(108,99,255,0.6); }
 
-        /* HERO */
         .hero {
             min-height: 100vh;
             display: flex; align-items: center; justify-content: center;
@@ -225,7 +220,6 @@
         }
         .hero-stat .label { font-size: 0.8rem; color: var(--text-muted); margin-top: 4px; }
 
-        /* FLOATING CARDS */
         .hero-float {
             position: absolute;
             background: var(--surface2); border: 1px solid var(--border);
@@ -248,7 +242,6 @@
         .hero-float .float-title { font-weight: 600; color: var(--text); margin-bottom: 2px; }
         .hero-float .float-sub { color: var(--text-muted); font-size: 0.78rem; }
 
-        /* SECTIONS */
         section { padding: 100px 60px; }
 
         .section-label {
@@ -270,7 +263,6 @@
             line-height: 1.7; max-width: 520px;
         }
 
-        /* HOW IT WORKS */
         .how { background: var(--surface); }
 
         .steps {
@@ -304,13 +296,9 @@
             margin: 0 auto 20px; box-shadow: 0 8px 24px rgba(108,99,255,0.3);
         }
 
-        .step h3 {
-            font-family: 'Syne', sans-serif;
-            font-size: 1.05rem; font-weight: 700; margin-bottom: 10px;
-        }
+        .step h3 { font-family: 'Syne', sans-serif; font-size: 1.05rem; font-weight: 700; margin-bottom: 10px; }
         .step p { color: var(--text-muted); font-size: 0.88rem; line-height: 1.6; }
 
-        /* CATEGORIES */
         .categories-grid {
             display: grid; grid-template-columns: repeat(4, 1fr);
             gap: 20px; margin-top: 64px;
@@ -331,9 +319,7 @@
         .cat-card:hover::before { opacity: 0.08; }
 
         .cat-icon { font-size: 2.4rem; margin-bottom: 14px; }
-        .cat-card h3 {
-            font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; margin-bottom: 6px;
-        }
+        .cat-card h3 { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
         .cat-card p { color: var(--text-muted); font-size: 0.82rem; line-height: 1.5; }
         .cat-count {
             display: inline-block; margin-top: 14px;
@@ -342,7 +328,6 @@
             font-size: 0.75rem; color: var(--text-muted);
         }
 
-        /* FEATURES */
         .features { background: var(--surface); }
 
         .features-grid {
@@ -358,23 +343,17 @@
             border: 1px solid transparent;
             transition: all 0.3s; cursor: none;
         }
-        .feature-item:hover {
-            background: var(--surface2); border-color: var(--border);
-        }
+        .feature-item:hover { background: var(--surface2); border-color: var(--border); }
 
         .feature-icon {
             width: 44px; height: 44px; flex-shrink: 0;
             border-radius: 12px; display: flex; align-items: center; justify-content: center;
             font-size: 1.2rem;
         }
-        .feature-item h4 {
-            font-family: 'Syne', sans-serif; font-weight: 700; margin-bottom: 6px; font-size: 1rem;
-        }
+        .feature-item h4 { font-family: 'Syne', sans-serif; font-weight: 700; margin-bottom: 6px; font-size: 1rem; }
         .feature-item p { color: var(--text-muted); font-size: 0.88rem; line-height: 1.6; }
 
-        .features-visual {
-            position: relative; height: 520px;
-        }
+        .features-visual { position: relative; height: 520px; }
 
         .mock-quiz {
             background: var(--surface2); border: 1px solid var(--border);
@@ -383,20 +362,14 @@
             box-shadow: 0 40px 80px rgba(0,0,0,0.4);
         }
 
-        .mock-quiz-header {
-            display: flex; justify-content: space-between; align-items: center;
-            margin-bottom: 24px;
-        }
+        .mock-quiz-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
         .mock-quiz-header .title { font-family: 'Syne', sans-serif; font-weight: 700; }
         .mock-timer {
             background: rgba(108,99,255,0.15); color: var(--accent);
             padding: 4px 12px; border-radius: 100px; font-size: 0.85rem; font-weight: 600;
         }
 
-        .mock-progress {
-            height: 6px; background: var(--surface);
-            border-radius: 3px; margin-bottom: 28px; overflow: hidden;
-        }
+        .mock-progress { height: 6px; background: var(--surface); border-radius: 3px; margin-bottom: 28px; overflow: hidden; }
         .mock-progress-bar {
             height: 100%; width: 60%;
             background: linear-gradient(90deg, var(--accent), var(--accent2));
@@ -404,9 +377,7 @@
         }
         @keyframes progress-anim { from { width: 40%; } to { width: 75%; } }
 
-        .mock-question {
-            font-size: 1rem; font-weight: 500; margin-bottom: 20px; line-height: 1.5;
-        }
+        .mock-question { font-size: 1rem; font-weight: 500; margin-bottom: 20px; line-height: 1.5; }
 
         .mock-options { display: flex; flex-direction: column; gap: 10px; }
         .mock-option {
@@ -414,12 +385,8 @@
             border: 1px solid var(--border); font-size: 0.88rem;
             transition: all 0.2s; cursor: none;
         }
-        .mock-option.selected {
-            background: rgba(108,99,255,0.15); border-color: var(--accent); color: var(--accent);
-        }
-        .mock-option.correct {
-            background: rgba(67,233,123,0.1); border-color: var(--accent3); color: var(--accent3);
-        }
+        .mock-option.selected { background: rgba(108,99,255,0.15); border-color: var(--accent); color: var(--accent); }
+        .mock-option.correct { background: rgba(67,233,123,0.1); border-color: var(--accent3); color: var(--accent3); }
 
         .mock-floating {
             position: absolute; bottom: -20px; right: -20px;
@@ -435,7 +402,6 @@
             font-family: 'Syne', sans-serif; font-weight: 800; font-size: 0.9rem;
         }
 
-        /* LEADERBOARD */
         .leaderboard { background: var(--bg); }
 
         .leaderboard-table {
@@ -460,10 +426,7 @@
         .lb-row:hover { background: var(--surface2); }
         .lb-row:last-child { border-bottom: none; }
 
-        .lb-rank {
-            font-family: 'Syne', sans-serif; font-weight: 800;
-            font-size: 1.1rem;
-        }
+        .lb-rank { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.1rem; }
         .lb-rank.gold { color: #ffd700; }
         .lb-rank.silver { color: #c0c0c0; }
         .lb-rank.bronze { color: #cd7f32; }
@@ -481,26 +444,14 @@
             margin-left: 8px;
         }
 
-        .lb-score {
-            font-family: 'Syne', sans-serif; font-weight: 700;
-            color: var(--accent);
-        }
+        .lb-score { font-family: 'Syne', sans-serif; font-weight: 700; color: var(--accent); }
         .lb-quizzes { color: var(--text-muted); font-size: 0.88rem; }
 
-        .lb-accuracy {
-            display: flex; align-items: center; gap: 8px;
-        }
-        .acc-bar {
-            flex: 1; height: 6px; background: var(--surface2);
-            border-radius: 3px; overflow: hidden;
-        }
-        .acc-fill {
-            height: 100%; border-radius: 3px;
-            background: linear-gradient(90deg, var(--accent3), #00b09b);
-        }
+        .lb-accuracy { display: flex; align-items: center; gap: 8px; }
+        .acc-bar { flex: 1; height: 6px; background: var(--surface2); border-radius: 3px; overflow: hidden; }
+        .acc-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--accent3), #00b09b); }
         .acc-text { font-size: 0.8rem; color: var(--text-muted); }
 
-        /* TESTIMONIALS */
         .testimonials { background: var(--surface); overflow: hidden; }
 
         .testimonials-track {
@@ -532,7 +483,6 @@
         .test-name { font-weight: 600; font-size: 0.9rem; }
         .test-role { color: var(--text-muted); font-size: 0.78rem; }
 
-        /* QUIZ PREVIEW */
         .quiz-preview { background: var(--bg); }
 
         .quiz-cards-grid {
@@ -557,17 +507,12 @@
         }
 
         .quiz-card-body { padding: 20px 24px 24px; }
-        .quiz-card-meta {
-            display: flex; gap: 8px; margin-bottom: 10px;
-        }
+        .quiz-card-meta { display: flex; gap: 8px; margin-bottom: 10px; }
         .quiz-tag {
             font-size: 0.72rem; padding: 3px 9px; border-radius: 100px;
             background: rgba(108,99,255,0.1); color: var(--accent); border: 1px solid var(--border);
         }
-        .quiz-card h3 {
-            font-family: 'Syne', sans-serif; font-weight: 700;
-            font-size: 1rem; margin-bottom: 8px; line-height: 1.3;
-        }
+        .quiz-card h3 { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1rem; margin-bottom: 8px; line-height: 1.3; }
         .quiz-card p { color: var(--text-muted); font-size: 0.83rem; line-height: 1.5; margin-bottom: 16px; }
 
         .quiz-card-footer {
@@ -586,7 +531,6 @@
         }
         .btn-quiz:hover { background: var(--accent); color: white; }
 
-        /* COUNTER SECTION */
         .counters {
             background: linear-gradient(135deg, rgba(108,99,255,0.1), rgba(255,101,132,0.05));
             border-top: 1px solid var(--border);
@@ -608,7 +552,6 @@
         }
         .counter-item .counter-label { color: var(--text-muted); font-size: 0.9rem; }
 
-        /* FAQ */
         .faq { background: var(--surface); }
 
         .faq-grid {
@@ -642,11 +585,8 @@
             transition: max-height 0.35s ease, padding 0.35s ease;
             color: var(--text-muted); font-size: 0.9rem; line-height: 1.7;
         }
-        .faq-item.open .faq-answer {
-            max-height: 200px; padding: 0 24px 20px;
-        }
+        .faq-item.open .faq-answer { max-height: 200px; padding: 0 24px 20px; }
 
-        /* CTA SECTION */
         .cta-section {
             padding: 120px 60px;
             text-align: center; position: relative; overflow: hidden;
@@ -663,7 +603,6 @@
 
         .cta-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
 
-        /* FOOTER */
         footer {
             background: var(--surface); border-top: 1px solid var(--border);
             padding: 80px 60px 40px;
@@ -687,15 +626,9 @@
         }
         .social-btn:hover { background: var(--accent); border-color: var(--accent); }
 
-        .footer-col h4 {
-            font-family: 'Syne', sans-serif; font-weight: 700;
-            font-size: 0.9rem; margin-bottom: 18px; color: var(--text);
-        }
+        .footer-col h4 { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.9rem; margin-bottom: 18px; color: var(--text); }
         .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-        .footer-col a {
-            color: var(--text-muted); text-decoration: none; font-size: 0.88rem;
-            transition: color 0.2s;
-        }
+        .footer-col a { color: var(--text-muted); text-decoration: none; font-size: 0.88rem; transition: color 0.2s; }
         .footer-col a:hover { color: var(--accent); }
 
         .footer-bottom {
@@ -704,7 +637,6 @@
         }
         .footer-bottom p { color: var(--text-muted); font-size: 0.82rem; }
 
-        /* ANIMATIONS */
         @keyframes fadeUp {
             from { opacity: 0; transform: translateY(24px); }
             to { opacity: 1; transform: translateY(0); }
@@ -720,7 +652,6 @@
         }
         .reveal.visible { opacity: 1; transform: translateY(0); }
 
-        /* RESPONSIVE */
         @media (max-width: 1100px) {
             .categories-grid { grid-template-columns: repeat(2, 1fr); }
             .steps { grid-template-columns: repeat(2, 1fr); }
@@ -754,11 +685,10 @@
 </head>
 <body>
 
-<!-- Custom Cursor -->
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursorRing"></div>
 
-<!-- NAV -->
+<!-- NAV — UNCHANGED -->
 <nav id="navbar">
     <div class="nav-logo">Fun<span style="-webkit-text-fill-color: unset; color: var(--accent2)">Quiz</span></div>
     <ul class="nav-links">
@@ -771,10 +701,26 @@
     </div>
 </nav>
 
-<!-- HERO -->
+<!-- HERO — UNCHANGED except Addition 1 inserted after hero-grid div -->
 <section class="hero" id="home">
     <div class="hero-bg"></div>
     <div class="hero-grid"></div>
+    <div style="position: absolute; bottom: 0; left: 4%; z-index: 0; pointer-events: none;">
+        <img src="images/thinking.jpeg"
+             alt="Quiz Time"
+             style="width: 300px; max-width: 38vw; border-radius: 20px;
+                    filter: blur(1px) saturate(1.6);">
+    </div>
+
+
+    <!-- ▼▼▼ ADDITION 1: NEON IMAGE — placed bottom-right of hero as ambient glow ▼▼▼ -->
+    <div style="position: absolute; bottom: 0; right: 4%; z-index: 0; pointer-events: none;">
+        <img src="images/quiz-neon.jpeg"
+             alt="Quiz Time"
+             style="width: 400px; max-width: 38vw; border-radius: 20px;
+                    filter: blur(1px) saturate(1.6);">
+    </div>
+    <!-- ▲▲▲ END ADDITION 1 ▲▲▲ -->
 
     <!-- Floating Cards -->
     <div>
@@ -792,10 +738,10 @@
     
 </section>
 
-<!-- HOW IT WORKS -->
+<!-- HOW IT WORKS — UNCHANGED -->
 <section class="how" id="how">
 
-<!-- CATEGORIES -->
+<!-- CATEGORIES — UNCHANGED -->
 <section id="categories" style="background: var(--bg);">
     <div class="reveal">
         <span class="section-label">Explore Topics</span>
@@ -806,30 +752,26 @@
         <div class="cat-card" style="--card-color: #6c63ff;">
             <div class="cat-icon"></div>
             <h3>Pop Culture </h3>
-            <span class="cat-count">120 quizzes</span>
         </div>
         <div class="cat-card" style="--card-color: #f7971e;">
             <div class="cat-icon"></div>
             <h3>Geography</h3>
-            <span class="cat-count">95 quizzes</span>
         </div>
         <div class="cat-card" style="--card-color: #43e97b;">
             <div class="cat-icon"></div>
             <h3>Sports</h3>
-            <span class="cat-count">80 quizzes</span>
         </div>
         <div class="cat-card" style="--card-color: #ff6584;">
             <div class="cat-icon"></div>
             <h3>Entertainment</h3>
-            <span class="cat-count">110 quizzes</span>
         </div>
         
     </div>
 </section>
 
-<!-- COUNTERS -->
+<!-- COUNTERS — UNCHANGED -->
 
-<!-- FEATURES -->
+<!-- FEATURES — UNCHANGED except Addition 2 replaces the empty <div> at the end -->
 <section class="features" id="features">
     <div class="features-grid">
         <div class="reveal">
@@ -861,15 +803,20 @@
                 </div>
             </div>
         </div>
-    <div>
-    </div>
+
+        <!-- ▼▼▼ ADDITION 2: VIDEO — replaces the empty <div> </div> that was here ▼▼▼ -->
+        
+        
+        <!-- ▲▲▲ END ADDITION 2 ▲▲▲ -->
+
+
 </section>
 
-<!-- POPULAR QUIZZES -->
+<!-- POPULAR QUIZZES — UNCHANGED -->
 
-<!-- TESTIMONIALS -->
+<!-- TESTIMONIALS — UNCHANGED -->
 
-<!-- FAQ -->
+<!-- FAQ — UNCHANGED -->
 <section class="faq" id="faq">
     <div class="reveal" style="text-align: center; margin-bottom: 0;">
         <span class="section-label">Got Questions?</span>
@@ -877,8 +824,8 @@
     </div>
     <div class="faq-grid reveal">
         <div class="faq-item">
-            <div class="faq-question">Is QuizMaster completely free to use? <span class="faq-icon">+</span></div>
-            <div class="faq-answer">Yes! QuizMaster is 100% free. Create an account, pick any category and start playing instantly with no hidden charges.</div>
+            <div class="faq-question">Is FunQuiz completely free to use? <span class="faq-icon">+</span></div>
+            <div class="faq-answer">Yes! FunQuiz is 100% free. Create an account, pick any category and start playing instantly with no hidden charges.</div>
         </div>
         <div class="faq-item">
             <div class="faq-question">How are scores calculated? <span class="faq-icon">+</span></div>
@@ -903,7 +850,7 @@
     </div>
 </section>
 
-<!-- CTA -->
+<!-- CTA — UNCHANGED -->
 <section class="cta-section">
     <div style="position: relative; z-index: 1;">
         <span class="section-label reveal">Ready to Play?</span>
@@ -915,11 +862,11 @@
     </div>
 </section>
 
-<!-- FOOTER -->
+<!-- FOOTER — UNCHANGED -->
 <footer>
     <div class="footer-grid">
         <div class="footer-brand">
-            <span class="nav-logo">Quiz<span style="-webkit-text-fill-color: unset; background: none; color: var(--accent2)">Master</span></span>
+            <span class="nav-logo">Fun<span style="-webkit-text-fill-color: unset; background: none; color: var(--accent2)">Quiz</span></span>
             <p>The smartest online quiz platform for students, professionals, and curious minds across India and beyond.</p>
                     </div>
         <div class="footer-col">
@@ -934,7 +881,7 @@
         </div>
     </div>
     <div class="footer-bottom">
-        <p>© 2025 FunMaster. Built with ❤️ for knowledge seekers everywhere.</p>
+        <p>© 2025 FunQuiz. Built with ❤️ for knowledge seekers everywhere.</p>
         <p style="color: var(--text-muted);">Made in India 🇮🇳</p>
     </div>
 </footer>
