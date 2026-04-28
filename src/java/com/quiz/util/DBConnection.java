@@ -9,7 +9,7 @@ public class DBConnection {
         Connection con = null;
         try {
             // Paste your actual Railway values below
-            String host = "mainline.proxy.rlwy.net";  // ← replace with your Railway host
+            String host = "mainline.rlwy.net";  // ← replace with your Railway host
             String port = "53389";                       // ← replace with your Railway port
             String dbName = "railway";                   // ← replace with your Railway DB name
             String user = "root";                        // ← replace with your Railway username
