@@ -5,25 +5,18 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DBConnection {
+
+    private static final String URL = "jdbc:mysql://localhost:3306/quiz_app";
+    private static final String USER = "root";  // change if needed
+    private static final String PASSWORD = "Tigeristheking@191"; // change if needed
+
     public static Connection getConnection() {
         Connection con = null;
         try {
-            // Paste your actual Railway values below
-            String host = "mainline.rlwy.net";  // ← replace with your Railway host
-            String port = "53389";                       // ← replace with your Railway port
-            String dbName = "railway";                   // ← replace with your Railway DB name
-            String user = "root";                        // ← replace with your Railway username
-            String password = "dMRUoFBLBIgojQZGawaDHfoRoeCtYDoj";            // ← replace with your Railway password
-               
-            String url = "jdbc:mysql://" + host + ":" + port + "/" + dbName
-                       + "?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
-
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection(url, user, password);
-            System.out.println("Database connected successfully!");
-
+            con = DriverManager.getConnection(URL, USER, PASSWORD);
+            System.out.println("Database Connected Successfully!");
         } catch (ClassNotFoundException | SQLException e) {
-            System.out.println("DB Connection failed: " + e.getMessage());
         }
         return con;
     }
